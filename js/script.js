@@ -15,7 +15,7 @@ btnNavEl.addEventListener("click", () => headerEl.classList.toggle("nav-open"));
 
 ///////////////////////////////////////////////
 // Smooth scrolling animation
-const allLinks = document.querySelectorAll("a:link");
+const allLinks = document.querySelectorAll(".smooth-link:link");
 allLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
