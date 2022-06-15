@@ -40,10 +40,22 @@ allLinks.forEach((link) => {
   });
 });
 
+// Get specific element's css style
+const getSpecificStyleValue = function (node, propertyName) {
+  const style = window.getComputedStyle(node).getPropertyValue(propertyName);
+  const value = parseFloat(style);
+  return value;
+};
+
 ///////////////////////////////////////////////////////////
 // Sticky navigation
 const sectionHeroEl = document.querySelector(".section-hero");
 
+const heroParagraph = document.querySelector(".hero-description");
+const htmlFontSize = getSpecificStyleValue(heroParagraph, "font-size") / 2;
+console.log(htmlFontSize);
+
+const rootMargin = `-${htmlFontSize * 8}px`;
 const obs = new IntersectionObserver(
   function (entries) {
     const entry = entries[0];
@@ -53,7 +65,7 @@ const obs = new IntersectionObserver(
   {
     root: null, // In the viewport
     threshold: 0,
-    rootMargin: "-80px",
+    rootMargin: rootMargin,
   }
 );
 
